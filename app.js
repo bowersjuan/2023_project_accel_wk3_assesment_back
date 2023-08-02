@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const morgan = require("morgan");
 const items = require("./data.json");
 
 app.use(morgan("tiny"));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.status(200).json({ data: "Server running..." });
